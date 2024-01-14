@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Yield Prediction</title>
+</head>
+<body>
+    <h1>Crop Yield Prediction</h1>
+    
+    <form action="/predict" method="post">
+        <label for="crop_year">Crop Year:</label>
+        <input type="text" name="crop_year" required><br>
+
+        <label for="area">Area:</label>
+        <input type="text" name="area" required><br>
+
+        <label for="temperature">Temperature:</label>
+        <input type="text" name="temperature" required><br>
+
+        <label for="wind_speed">Wind Speed:</label>
+        <input type="text" name="wind_speed" required><br>
+
+        <label for="precipitation">Precipitation:</label>
+        <input type="text" name="precipitation" required><br>
+
+        <label for="humidity">Humidity:</label>
+        <input type="text" name="humidity" required><br>
+
+        <label for="soil_type">Soil Type:</label>
+        <input type="text" name="soil_type" required><br>
+
+        <label for="N">N:</label>
+        <input type="text" name="N" required><br>
+
+        <label for="P">P:</label>
+        <input type="text" name="P" required><br>
+
+        <label for="K">K:</label>
+        <input type="text" name="K" required><br>
+
+        <label for="pressure">Pressure:</label>
+        <input type="text" name="pressure" required><br>
+
+        <label for="state_names">State Names:</label>
+        <input type="text" name="state_names" required><br>
+
+        <label for="district_names">District Names:</label>
+        <input type="text" name="district_names" required><br>
+
+        <label for="season_names">Season Names:</label>
+        <input type="text" name="season_names" required><br>
+
+        <label for="crop_names">Crop Names:</label>
+        <input type="text" name="crop_names" required><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <p>{{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
