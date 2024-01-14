@@ -19,35 +19,68 @@
             margin-bottom: 20px;
         }
 
+        .result-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
         p {
             font-size: 18px;
             margin-bottom: 20px;
+        }
+
+        .suggestion {
+            font-size: 16px;
+            color: #6c757d;
+            margin-top: 10px;
+        }
+
+        .positive-suggestion {
+            color: #28a745;
+        }
+
+        .negative-suggestion {
+            color: #dc3545;
         }
 
         a {
             color: #007bff;
             text-decoration: none;
             font-weight: bold;
-            display: block;
+            display: inline-block;
             margin-top: 20px;
+            transition: color 0.3s;
         }
 
         a:hover {
+            color: #0056b3;
             text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <h1>Crop Yield Prediction Result</h1>
+    <div class="result-container">
+        <h1>Crop Yield Prediction Result</h1>
 
-    {% if prediction %}
-        <p>{{ prediction }}</p>
-    {% else %}
-        <p>No prediction available.</p>
-    {% endif %}
+        {% if prediction %}
+            <p>{{ prediction }}</p>
+            <div class="suggestion {% if prediction >= 0 %}positive-suggestion{% else %}negative-suggestion{% endif %}">
+                {% if prediction >= 0 %}
+                    This is a positive prediction. Consider optimizing your farming practices to maximize yield.
+                {% else %}
+                    This is a negative prediction. Review your farming strategies and explore ways to improve crop yield.
+                {% endif %}
+            </div>
+        {% else %}
+            <p>No prediction available.</p>
+        {% endif %}
+    </div>
 
-    <a href="/">Go back to input page</a>
+    <a href="/" class="btn btn-primary">Go back to input page</a>
 </body>
 
 </html>
