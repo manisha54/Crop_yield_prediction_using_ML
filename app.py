@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import GradientBoostingRegressor
@@ -6,11 +6,13 @@ from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
-import joblib  # Add this line
+import joblib
 
 app = Flask(__name__)
+
 # Load your dataset
-df = pd.read_csv("C:/Users/dell/Downloads/new_dataset.csv") 
+df = pd.read_csv("C:/Users/dell/Downloads/new_dataset.csv")
+
 # Load your trained model and preprocessor
 model = GradientBoostingRegressor(n_estimators=100, random_state=42)
 
@@ -39,17 +41,17 @@ pipeline = Pipeline(steps=[('preprocessor', preprocessor),
                              ('regressor', model)])
 
 # Load your pre-trained model
-model_path = "C:/Users/dell/Downloads/gradient_boosting_model2.joblib"  # replace with the actual path to your saved model
+model_path = "C:/Users/dell/Downloads/gradient_boosting_model2.joblib"
 pipeline = joblib.load(model_path)
 
-# Define a route for the home page
+# Define a route for the input page
 @app.route('/')
-def home():
-    return render_template('index.html')
+def input_page():
+    return render_template('input.html')
 
-# Define a route for the prediction page
-@app.route('/predict', methods=['POST'])
-def predict():
+# Define a route for processing the input and displaying the result
+@app.route('/result', methods=['POST'])
+def result():
     try:
         # Get input data from the HTML form
         crop_year = int(request.form['crop_year'])
@@ -93,10 +95,12 @@ def predict():
         # Make predictions using the model
         prediction = pipeline.named_steps['regressor'].predict(preprocessor_transformed_data)[0]
 
-        return render_template('index.html', prediction=f'Predicted Crop Yield: {prediction:.2f}')
+        # Pass the prediction result to the result page
+        return render_template('result.html', prediction=prediction)
 
     except Exception as e:
-        return render_template('index.html', prediction=f'Error: {str(e)}')
+        # Handle errors
+        return render_template('input.html', prediction=f'Error: {str(e)}')
 
 if __name__ == '__main__':
     app.run(debug=True)

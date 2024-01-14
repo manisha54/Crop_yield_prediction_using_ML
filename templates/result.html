@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Yield Prediction - Result</title>
+    <!-- Add your custom CSS styles -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Crop Yield Prediction Result</h1>
+
+    {% if prediction %}
+        <p>{{ prediction }}</p>
+    {% else %}
+        <p>No prediction available.</p>
+    {% endif %}
+
+    <a href="/">Go back to input page</a>
+</body>
+
+</html>

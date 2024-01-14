@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Yield Prediction - Input</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Add your custom CSS styles -->
+    <style>
+        body {
+            background-image: url('https://tpjoe.gitlab.io/post/img/crop_cover.jpg');
+            background-size: cover;
+            margin: 0;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 0;
+            height: 100vh;
+        }
+
+        .cover-container {
+            padding: 120px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 100px;
+            /* Adjust the margin as needed */
+        }
+
+        h1 {
+            color: #28a745;
+            margin-bottom: 2px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        label {
+            margin-top: 10px;
+            display: block;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cover-container">
+        <h1 class="mt-4">Crop Yield Prediction</h1>
+
+        <form action="/result" method="post">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="crop_year">Crop Year:</label>
+                    <input type="text" name="crop_year" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="area">Area:</label>
+                    <input type="text" name="area" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="temperature">Temperature:</label>
+                    <input type="text" name="temperature" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="wind_speed">Wind Speed:</label>
+                    <input type="text" name="wind_speed" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="precipitation">Precipitation:</label>
+                    <input type="text" name="precipitation" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="humidity">Humidity:</label>
+                    <input type="text" name="humidity" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="soil_type">Soil Type:</label>
+                    <input type="text" name="soil_type" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="N">Nitrogen:</label>
+                    <input type="text" name="N" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="P">phosphorus:</label>
+                    <input type="text" name="P" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="K">potassium:</label>
+                    <input type="text" name="K" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="pressure">Pressure:</label>
+                    <input type="text" name="pressure" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="state_names">State Names:</label>
+                    <input type="text" name="state_names" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="district_names">District Names:</label>
+                    <input type="text" name="district_names" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="season_names">Season Names:</label>
+                    <input type="text" name="season_names" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="crop_names">Crop Names:</label>
+                    <input type="text" name="crop_names" class="form-control" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Predict</button>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
