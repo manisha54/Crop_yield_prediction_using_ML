@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crop Yield Prediction - Result</title>
-    <!-- Add  custom CSS styles -->
+    <!-- Add custom CSS styles -->
     <style>
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f8f9fa;
             padding: 20px;
             text-align: center;
+            color: #343a40;
         }
 
         h1 {
@@ -35,7 +36,8 @@
         .suggestion {
             font-size: 16px;
             color: #6c757d;
-            margin-top: 10px;
+            margin-top: 20px;
+            text-align: left;
         }
 
         .positive-suggestion {
@@ -46,18 +48,31 @@
             color: #dc3545;
         }
 
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
         a {
-            color: #007bff;
+            color: #fff;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
             margin-top: 20px;
-            transition: color 0.3s;
+            transition: background-color 0.3s;
+            background-color: #007bff;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
         a:hover {
-            color: #0056b3;
-            text-decoration: underline;
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -70,17 +85,23 @@
         <p>{{ prediction }}</p>
         <div class="suggestion {% if prediction >= 0 %}positive-suggestion{% else %}negative-suggestion{% endif %}">
             {% if prediction >= 0 %}
-            This is a positive prediction. Consider optimizing your farming practices to maximize yield.
+                <p>This is a positive prediction. Here are some suggestions to optimize your farming practices and maximize yield:</p>
             {% else %}
-            This is a negative prediction. Review your farming strategies and explore ways to improve crop yield.
+                <p>This is a negative prediction. Here are some suggestions to improve crop yield:</p>
             {% endif %}
+            <ul>
+                <li>Ensure proper nutrient management by providing adequate N, P, and K.</li>
+                <li>Monitor soil moisture levels and irrigation to meet the crop's needs.</li>
+                <li>Consider using advanced farming technologies and precision agriculture.</li>
+                <li>Stay updated on weather conditions and plan farming activities accordingly.</li>
+            </ul>
         </div>
         {% else %}
         <p>No prediction available.</p>
         {% endif %}
     </div>
 
-    <a href="/" class="btn btn-primary">Go back to input page</a>
+    <a href="/input_page" class="btn btn-primary">Predict Again ??</a>
 </body>
 
 </html>
