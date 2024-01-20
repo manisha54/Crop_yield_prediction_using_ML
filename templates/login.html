@@ -1,25 +1,36 @@
-<!-- Similar to your existing styling, add Bootstrap if needed -->
-
 {% extends 'base.html' %}
 {% block content %}
-  <h1>Login</h1>
-  <form method="post">
-    {{ form.hidden_tag() }}
-    <div class="form-group">
-      {{ form.username.label }} {{ form.username(class="form-control") }}
-      {% for error in form.username.errors %}
-        <span style="color: red;">{{ error }}</span>
-      {% endfor %}
+  <div class="row justify-content-md-center">
+    <div class="col-md-6">
+      <h1 style="color: #050604; text-align: center;">WELCOME BACK</h1>
+      <form method="post">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+          {{ form.username.label }} {{ form.username(class="form-control") }}
+          {% for error in form.username.errors %}
+            <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+        </div>
+        <div class="form-group">
+          {{ form.password.label }} {{ form.password(class="form-control") }}
+          {% for error in form.password.errors %}
+            <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+        </div>
+        <button type="submit" class="btn custom-color btn-block" style="font-size: 24px; font-weight: bold;">Login</button>
+      </form>
+      <p style="color: #0f0404; text-align: center;">Don't have an account? <a href="{{ url_for('register') }}" style="color: #1f25ec;">Sign Up</a></p>
     </div>
-    <div class="form-group">
-      {{ form.password.label }} {{ form.password(class="form-control") }}
-      {% for error in form.password.errors %}
-        <span style="color: red;">{{ error }}</span>
-      {% endfor %}
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
+  </div>
 
-  </form>
-  <p>Don't have an account? <a href="{{ url_for('register') }}">Sign Up</a></p>
 
+
+  <!-- Add custom styles for the button color -->
+  <style>
+    .custom-color {
+      background-color: #7fe74f; 
+      color: #fff; 
+      border-color: #0f0501
+    }
+  </style>
 {% endblock %}

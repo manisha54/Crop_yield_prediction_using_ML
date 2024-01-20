@@ -78,9 +78,14 @@ model_path = "C:/Users/dell/Downloads/gradient_boosting_model2.joblib"
 pipeline = joblib.load(model_path)
 
 # Define a route for the input page
+# @app.route('/')
+# def default():
+#     return redirect(url_for('register'))
+
 @app.route('/')
 def default():
-    return redirect(url_for('register'))
+    return render_template('landing.html')
+
 
 # Add a registration route
 @app.route('/register', methods=['GET', 'POST'])
@@ -207,8 +212,10 @@ def result():
 @login_required
 def logout():
     logout_user()
-    flash('Logout successful.', 'success')
-    return redirect(url_for('login'))
+    #flash('Logout successful.', 'success')
+    return redirect(url_for('default')) 
+
+    #return redirect(url_for('login'))
     # return render_template('register.html', form=form)
 
 
