@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <title>Crop Yield Prediction - Input</title> -->
-    <!-- Add Bootstrap CSS link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <!-- Add your custom CSS styles -->
     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
         nav {
             width: 100%;
             position: fixed;
@@ -16,17 +17,30 @@
             z-index: 1000;
         }
 
+        .logo img {
+            width: 140px;
+            height: 70px;
+        }
+
         .cover-container {
-            padding: 120px;
-            background-color: rgba(255, 255, 255, 0.8);
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
-            text-align: center;
-            margin-top: 100px;
+            text-align: justify;
+            margin-top: 80px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
             color: #28a745;
-            margin-bottom: 2px;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
         }
 
         form {
@@ -38,21 +52,29 @@
             margin-top: 10px;
             display: block;
             font-weight: bold;
+            font-size: 1.1rem;
         }
 
         input {
             width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
+            padding: 10px;
+            margin-bottom: 20px;
             box-sizing: border-box;
+            font-size: 1rem;
         }
 
         button {
             background-color: #007bff;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border: none;
             cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -60,7 +82,9 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Crop Prediction</a>
+        <div class="logo">
+            <img src="static/images/Logo.png" alt="Your Logo">
+        </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -78,20 +102,16 @@
                     <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
                 </li>
                 <li class="nav-item">
-                    <span class="nav-link">Welcome, Manisha{{ current_user.username }}</span>
+                    <span class="nav-link">Welcome, Manisha {{ current_user.username }}</span>
                 </li>
                 {% endif %}
             </ul>
-
         </div>
     </nav>
 
-    <div class="container">
-        <h1>About Us</h1>
-        <p>Welcome to our website! This is a brief overview of who we are and what we do.</p>
-        <!-- Add more content as needed -->
-    </div>
-
+    <div class="container cover-container">
+        <h1>About Crop Yield Prediction</h1>
+        <p>Utilizing machine learning models, our crop yield prediction for the Terai region leverages environmental data, including temperature,Nitrogen, Phosphorus, Humidity, Area, Season Name, Crop Name, State Name, Potassium, precipitation, and soil types. This enables accurate forecasts, empowering farmers with insights to optimize cultivation practices and enhance agricultural productivity.</p>
     </div>
 
     <!-- Add Bootstrap JS and Popper.js scripts -->
